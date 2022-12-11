@@ -30,7 +30,15 @@ const userSchema = new mongoose.Schema({
         dosage:{
             type:Number
         }
-    }]
+    }],
+    sos_email: {
+        type: String,
+        validate(value) {
+            if (!validator.isEmail(value)) {
+                throw new Error("Invalid Email Address.");
+            }
+        }
+    },
 });
 
 

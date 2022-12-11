@@ -38,7 +38,8 @@ router.get("/contact", (req, res) => {
 router.get("/main", auth, (req, res)=>{
     const meds = getMeds(req);
     const day = getDay();
-    const setToday = {1 : ['Monday', false], 2 : ['Tuesday', false], 3 : ['Wednesday', false], 4 : ['Thursday', false], 5 : ['Friday', false], 6 : ['Saturday', false], 7 : ['Sunday', false]};
+    console.log(day)
+    const setToday = {1 : ['Monday', false], 2 : ['Tuesday', false], 3 : ['Wednesday', false], 4 : ['Thursday', false], 5 : ['Friday', false], 6 : ['Saturday', false], 0 : ['Sunday', false]};
     setToday[day][1] = true;
 
     res.status(200).render("main", {meds : meds, setToday: setToday});
@@ -79,11 +80,13 @@ router.post("/taken", auth, async (req, res)=>{
     }
 })
 
-router.get("/sos", async (req, res)=>{
+router.get("/sos", auth, async (req, res)=>{
     try {
-        sendMailUsingOAuth()
-        .then((result) => console.log('Email sent...', result))
-        .catch((error) => console.log(error.message));
+        await sendMailUsingOAuth(req);
+        res.json({
+            sucess: true,
+            data: 'Email Sent Successfully. Help will reach you soon.'
+        })
     } catch (err) {
         res.json({
             success:false,
@@ -191,31 +194,25 @@ const getDay = ()=>{
     return new Date().getDay();
 }
 
-const sendMailUsingOAuth = async () => {
+const sendMailUsingOAuth = async (req) => {
     const msg = {
         from: 'darkluciferpg@gmail.com',
-        to: 'reklessgamerff@gmail.com',
-        subject: 'NodeMailer Testing',
-        text: 'Hi there this is testing of mail'
+        to: req.user.sos_email,
+        subject: `Emergency message from ${req.user.email}`,
+        text: 'Hi there this is emergency message. Someone needs your help.Kindly reach them as fast as you can.'
     };
 
     nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'darkluciferpg@gmail.com',
-            pass: 'inxfqltkfcorsuuj         '
+            user: process.env.EMAIL,
+            pass: process.env.PASSWORD
         },
         port: 465,
         host: 'smtp.gmail.com'
     })
 
-    .sendMail(msg, (err ) => {
-        if (err){
-            return console.log('Error Occurs', err)
-        } else{
-            return console.log('Email Sent')
-        }
-    })
+    .sendMail(msg)
 }
 
 

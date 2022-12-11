@@ -9,9 +9,11 @@ Also there is a feature to contact on an email address when you are in trouble.
 ![image](https://user-images.githubusercontent.com/57427399/206902403-e92acef4-744e-4284-a36a-c02f4fb6c09e.png)
 
 # Instructions -->
-# Clone the git repository by command: git clone https://github.com/Abubakarask/kratin-task
-# To install dependencies, use command: npm i
-# To start the server, use command: npm run dev
-# You can use the website on site 'localhost:3000'
-
-
+> Clone the git repository by command
+```git clone https://github.com/Abubakarask/kratin-task```
+> To install dependencies, use command
+```npm i```
+> To start the server, use command
+```npm run dev```
+> You can use the website on site 
+```localhost:3000```

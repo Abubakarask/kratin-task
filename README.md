@@ -14,10 +14,13 @@ Also there is a feature to contact on an email address when you are in trouble.
 ```git clone https://github.com/Abubakarask/kratin-task```
 
 > To install dependencies, use command
+
 ```npm i```
 
 > To start the server, use command
+
 ```npm run dev```
 
 > You can use the website on site 
+
 ```localhost:3000```

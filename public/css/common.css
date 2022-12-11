@@ -1,0 +1,28 @@
+body {
+    background-color: rgb(214, 26, 60);
+    text-align: center;
+    padding-top: 5rem;
+    font-family: 'Poppins';
+
+}
+
+h1 {
+    color: white;
+    margin-bottom: 0;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 50vh;
+}
+
+form input {
+    margin: 1rem;
+}
+
+form button {
+    margin-top: 1rem;
+}

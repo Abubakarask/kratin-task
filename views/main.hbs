@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200&display=swap');
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="/logout">Logout</a>
+    </div>
+
+    <div class="midbox">
+        {{#each setToday}}
+            {{#if this.[1]}}
+                <div class="day active">{{this.[0]}}</div>
+            {{else}}
+                <div class="day">{{this.[0]}}</div>
+            {{/if}}
+        {{/each}}
+    </div>
+
+    <form action="/main" method="post" class="medicine-form">
+        <input type="text" name="medicine" id="medicine" placeholder="Enter Medicine to Add">
+        <input type="text" name="dosage" id="medicine" placeholder="Enter Dosage per Day">
+        <input type="text" name="stock" id="medicine" placeholder="Enter Stock">
+        <button type="submit" class="medicine-btn day">Add Medicine</button>
+    </form>
+
+    <section class="button_result">
+        <div class="Res">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Medicine Name</th>
+                        <th>Take Today</th>
+                        <th>Remaining</th>
+                        <th>Taken</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                        {{#if meds}}
+                            {{#each meds}}
+                            <form action="/taken" method="post">
+                                <tr>
+                                    <input type="hidden" name="docId" value={{this._id}}>
+                                    <td>{{this.medicine}}</td>
+                                    <td class="pills">{{this.dosage}}</td>
+                                    <td class="quantity">
+                                    {{#if this.stock}} {{this.stock}}
+                                    {{else}} <p class="alert">Out of Stock</p>
+                                    {{/if}}
+                                    </td>
+                                    <td><button type="submit" id="taken">Taken</button></td>
+                                </tr>
+                            </form>
+                            {{/each}}
+                            {{else}}
+                            <tr>
+                                <td>None</td>
+                                <td class="pills">0</td>
+                                <td class="quantity">0</td>
+                                <td><button id="taken" disabled="true">Taken</button></td>
+                            </tr>
+                        {{/if}}
+                </tbody>
+
+            </table>
+        </div>
+    </section>
+</body>
+
+</html>

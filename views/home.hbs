@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="css/home.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200&display=swap');
+    </style>
+</head>
+
+<body>
+    <div class="both">
+        <div class="leftbox"><img src="images/1.jpg" alt="kratin"></div>
+        <div class="rightbox">
+            <div class="righttop">
+                <h1><span>Welcome to </span><span>KRATIN</span></h1>
+            </div>
+            <div class="rightbottom">
+                {{#if isAuthenticated}}
+                    <a href="/main">Main</a>
+                    <a href="/sos">SOS</a>
+                    <a href="/logout">Logout</a>
+                    {{else}}
+                    <a href="/register">Sign Up</a>
+                    <a href="/login">Login</a>
+                {{/if}}
+                
+                
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

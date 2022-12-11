@@ -1,0 +1,99 @@
+body {
+    margin: 0px;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header {
+    padding: 10px 10px;
+    background: rgb(214, 26, 60);
+    display: flex;
+    justify-content: right;
+}
+
+.header a {
+    color: rgb(242, 243, 244);
+}
+
+.midbox {
+    width: 80%;
+    margin: 6% auto;
+    text-align: center;
+}
+
+.day{
+    background-color: rgb(242, 243, 244);
+    border: 2px solid rgb(214, 26, 60);
+    border-radius: 2px;
+    font-size: 150%;
+    margin: 2px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.button_result {
+    font-size: 200%;
+    border: 4px solid black;
+    border-radius: 4px;
+    margin: auto;
+    width: 80%;
+}
+
+.active{
+    background-color: rgb(214, 26, 60) !important;
+    border: 2px solid black !important;
+    color: white;
+}
+
+.button_result button {
+    font-size: 80%;
+    margin: 10px;
+    padding: 7px 12px;
+    border: 2px solid rgb(214, 26, 60);
+    border-radius: 8px;
+    background-color: rgb(242, 243, 244);
+}
+
+.Res {
+    text-align: left;
+    padding-left: 10px;
+}
+
+table {
+    width: 100%;
+    padding: 5px;
+    font-size: 22px;
+    text-align: center;
+}
+
+#taken{
+    cursor: pointer;
+}
+
+
+#medicine{
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    border-radius: 5px;
+    padding: 0 8px;
+}
+
+.medicine-form{
+    width: 80%;
+    margin: 6% auto;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.medicine-btn{
+    padding: 7px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.alert{
+    color: rgb(214, 26, 60);
+}
